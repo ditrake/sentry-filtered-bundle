@@ -14,10 +14,10 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class SentryErrorFilter
 {
     /** @var string  */
-    private const ROOT_PARAMETERS = 'sentry';
+    public const CONFIGURATION_ROOT = 'sentry_filtered';
 
     /** @var string  */
-    private const ENTRY_PARAMS = 'report_errors';
+    public const FILTERED_EXCEPTIONS = 'filtered_exceptions';
 
     /**
      * @var ContainerInterface
@@ -46,16 +46,16 @@ class SentryErrorFilter
 
     private function checkException(string $type): bool
     {
-        if (!$this->container->hasParameter(self::ROOT_PARAMETERS)) {
-            throw new SentryFilterException(\sprintf('Parameters \'%s\' for sentry filter not configured', self::ROOT_PARAMETERS));
+        if (!$this->container->hasParameter(self::CONFIGURATION_ROOT)) {
+            throw new SentryFilterException(\sprintf('Parameters \'%s\' for sentry filter not configured', self::CONFIGURATION_ROOT));
         }
 
         $parameters = $this->container->getParameter('sentry');
-        if (!isset($parameters[self::ENTRY_PARAMS]) || empty($parameters[self::ENTRY_PARAMS]) || !is_array($parameters[self::ENTRY_PARAMS])) {
-            throw new SentryFilterException(\sprintf('Parameters \'%s\' for sentry filter not configured', self::ENTRY_PARAMS));
+        if (!isset($parameters[self::FILTERED_EXCEPTIONS]) || empty($parameters[self::FILTERED_EXCEPTIONS]) || !is_array($parameters[self::FILTERED_EXCEPTIONS])) {
+            throw new SentryFilterException(\sprintf('Parameters \'%s\' for sentry filter not configured', self::FILTERED_EXCEPTIONS));
         }
 
-        foreach ($parameters[self::ENTRY_PARAMS] as $exception) {
+        foreach ($parameters[self::FILTERED_EXCEPTIONS] as $exception) {
             if (\is_a($type, $exception, true)) {
                 return true;
             }
