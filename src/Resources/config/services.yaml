@@ -3,3 +3,6 @@ services:
     class: srr\SentryFilteredBundle\Service\SentryErrorFilter
     public: true
     autowire: true
+parameters:
+  sentry_filtered:
+    filtered_exceptions:
