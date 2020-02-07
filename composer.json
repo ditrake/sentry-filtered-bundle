@@ -2,7 +2,13 @@
     "type": "symfony-bundle",
     "name": "srr/sentry-filtered-bundle",
     "description": "Sentry filtered bundle",
-    "license": "proprietary",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergey Razin",
+            "email": "srr@webcrt.ru"
+        }
+    ],
     "require": {
         "php": "^7.4",
         "ext-ctype": "*",
@@ -22,9 +28,6 @@
         "vimeo/psalm": "^3.8"
     },
     "config": {
-        "preferred-install": {
-            "*": "dist"
-        },
         "sort-packages": true
     },
     "autoload": {
@@ -34,7 +37,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "srr\\SentryFilteredBundle\\Tests\\": "tests/"
+            "srr\\SentryFilteredBundle\\Tests\\": "test"
         }
     },
     "replace": {
@@ -52,7 +55,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "5.0.*"
+            "require": "4.4.*"
         }
     }
 }
