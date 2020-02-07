@@ -29,8 +29,8 @@ class Configuration implements ConfigurationInterface
             : $treeBuilder->root(SentryErrorFilter::CONFIGURATION_ROOT);
         $rootNode->children()
             ->arrayNode(SentryErrorFilter::FILTERED_EXCEPTIONS)
-            ->defaultValue([])
-            ->prototype('scalar');
+                ->scalarPrototype()->end()
+            ->end();
 
         return $treeBuilder;
     }
