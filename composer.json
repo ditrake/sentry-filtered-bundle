@@ -20,12 +20,6 @@
         "sentry/sentry-symfony": "^3.2"
     },
     "require-dev": {
-        "codeception/codeception": "^4.0",
-        "codeception/module-asserts": "^1.1",
-        "codeception/module-cli": "^1.0",
-        "codeception/module-doctrine2": "^1.0",
-        "codeception/module-symfony": "^1.0",
-        "vimeo/psalm": "^3.8"
     },
     "config": {
         "sort-packages": true
