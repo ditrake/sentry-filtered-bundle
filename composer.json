@@ -31,5 +31,6 @@
         "psr-4": {
             "srr\\SentryFilteredBundle\\Tests\\": "test"
         }
-    }
+    },
+    "version": "v0.1-dev"
 }
