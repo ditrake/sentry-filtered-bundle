@@ -1,3 +1,5 @@
 services:
   sentry_filtered:
     class: srr\SentryFilteredBundle\Service\SentryErrorFilter
+    public: true
+    autowire: true
