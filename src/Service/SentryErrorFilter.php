@@ -50,7 +50,7 @@ class SentryErrorFilter
             throw new SentryFilterException(\sprintf('Parameters \'%s\' for sentry filter not configured', self::CONFIGURATION_ROOT));
         }
 
-        $parameters = $this->container->getParameter('sentry');
+        $parameters = $this->container->getParameter(self::CONFIGURATION_ROOT);
         if (!isset($parameters[self::FILTERED_EXCEPTIONS]) || empty($parameters[self::FILTERED_EXCEPTIONS]) || !is_array($parameters[self::FILTERED_EXCEPTIONS])) {
             throw new SentryFilterException(\sprintf('Parameters \'%s\' for sentry filter not configured', self::FILTERED_EXCEPTIONS));
         }
