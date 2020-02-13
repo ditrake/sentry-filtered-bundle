@@ -1,15 +1,25 @@
 # Sentry filtered bundle
 
-For simple configured:
+## Install
+Add to composer.json:
+```json
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://git.crtweb.ru/creative-packages/sentry-filtered-errors"
+    }
+]
+```
+
+## Config
 
 ```yaml
-# config/services.yaml
+# config/sentry_filtered.yaml
 
-parameters:
-  sentry_filtered:
-    filtered_exceptions: 
-      - 'Your/Awesome/Exception'
-      - 'Your/Another/Awesome/Exception/'
+sentry_filtered:
+  filtered_exceptions: 
+    - 'Your/Awesome/Exception'
+    - 'Your/Another/Awesome/Exception/'
 ```
 
 And in `config/packages/sentry.yaml`
@@ -19,5 +29,5 @@ And in `config/packages/sentry.yaml`
 
 sentry:
   options:
-    before_send: '@sentry_filtered'
+    before_send: '@srr_sentry_filtered'
 ```
