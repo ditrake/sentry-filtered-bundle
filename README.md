@@ -6,9 +6,13 @@ Add to composer.json:
 "repositories": [
     {
         "type": "vcs",
-        "url": "https://git.crtweb.ru/creative-packages/sentry-filtered-errors"
+        "url": "https://github.com/ditrake/sentry-filtered-bundle.git"
     }
 ]
+```
+And execute:
+```bash
+composer require srr/sentry-filtered-bundle dev-master
 ```
 
 ## Config
